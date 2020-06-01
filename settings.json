@@ -1,0 +1,290 @@
+{
+    "subjects": ["sub-01", "sub-02", "sub-03"] , 
+    "rois": ["V1", "V2", "V3", "V4", "HVC"], 
+    "dnns": 
+        {
+            "AlexNet": {
+                    "dir": "./decoding/results/featPred_Deeprecon_AlexNetNNK_4096Units_Unave_Prediction/prediction_accuracy/caffe/AlexNet", 
+                    "layers": ["conv1_abs", "conv2", "conv3", "conv4", "conv5", "fc6", "fc7", "fc8"]
+                }, 
+
+            "VGG-F": {
+                    "dir": "./decoding/results/featPred_Deeprecon_VGGF_4096Units_Unave_Prediction/prediction_accuracy/caffe/VGG-F", 
+                    "layers": ["conv1_abs", "conv2", "conv3", "conv4", "conv5", "fc6", "fc7", "fc8"]
+                }, 
+
+            "VGG-M": {
+                    "dir": "./decoding/results/featPred_Deeprecon_VGGM_4096Units_Unave_Prediction/prediction_accuracy/caffe/VGG-M", 
+                    "layers": ["conv1_abs", "conv2", "conv3", "conv4", "conv5", "fc6", "fc7", "fc8"]
+                }, 
+
+            "VGG-S": { 
+                    "dir": "./decoding/results/featPred_Deeprecon_VGGS_4096Units_Unave_Prediction/prediction_accuracy/caffe/VGG-S", 
+                    "layers": ["conv1_abs", "conv2", "conv3", "conv4", "conv5", "fc6", "fc7", "fc8"]
+                }, 
+
+            "VGG-16": {
+                    "dir": "./decoding/results/featPred_Deeprecon_VGG16NNK_4096Units_Unave_Prediction/prediction_accuracy/caffe/VGG16_nonaka", 
+                    "layers": ["conv1_1_abs", "pool1", "pool2", "pool3", "pool4", "pool5", "fc6", "fc7", "fc8"]
+                },
+
+            "VGG-19": {
+                    "dir": "./decoding/results/featPred_Deeprecon_VGG19NNK_4096Units_Unave_Prediction/prediction_accuracy/caffe/VGG19_nonaka", 
+                    "layers": ["conv1_1_abs", "pool1", "pool2", "pool3", "pool4", "pool5", "fc6", "fc7", "fc8"]
+                },
+
+            "DenseNet-121": {
+                    "dir": "./decoding/results/featPred_Deeprecon_DenseNet121_4096Units_Unave_Prediction/prediction_accuracy/caffe/DenseNet_121/", 
+                    "layers": ["conv1_abs", "concat_2_1", "concat_2_2", "concat_2_3", "concat_2_4", "concat_2_5", 
+                            "concat_2_6", "concat_3_1", "concat_3_2", "concat_3_3", "concat_3_4", 
+                            "concat_3_5", "concat_3_6", "concat_3_7", "concat_3_8", "concat_3_9", 
+                            "concat_3_10", "concat_3_11", "concat_3_12", "concat_4_1", "concat_4_2", 
+                            "concat_4_3", "concat_4_4", "concat_4_5", "concat_4_6", "concat_4_7", 
+                            "concat_4_8", "concat_4_9", "concat_4_10", "concat_4_11", "concat_4_12", 
+                            "concat_4_13", "concat_4_14", "concat_4_15", "concat_4_16", "concat_4_17", 
+                            "concat_4_18", "concat_4_19", "concat_4_20", "concat_4_21", "concat_4_22", 
+                            "concat_4_23", "concat_4_24", "concat_5_1", "concat_5_2", "concat_5_3", 
+                            "concat_5_4", "concat_5_5", "concat_5_6", "concat_5_7", "concat_5_8", 
+                            "concat_5_9", "concat_5_10", "concat_5_11", "concat_5_12", "concat_5_13", 
+                            "concat_5_14", "concat_5_15", "concat_5_16", "fc6"]
+                },
+
+            "DenseNet-161": {
+                    "dir": "./decoding/results/featPred_Deeprecon_DenseNet161_4096Units_Unave_Prediction/prediction_accuracy/caffe/DenseNet_161/", 
+                    "layers": ["conv1_abs", "concat_2_1", "concat_2_2", "concat_2_3", "concat_2_4", "concat_2_5", 
+                            "concat_2_6", "concat_3_1", "concat_3_2", "concat_3_3", "concat_3_4", 
+                            "concat_3_5", "concat_3_6", "concat_3_7", "concat_3_8", "concat_3_9", 
+                            "concat_3_10", "concat_3_11", "concat_3_12", "concat_4_1", "concat_4_2", 
+                            "concat_4_3", "concat_4_4", "concat_4_5", "concat_4_6", "concat_4_7", 
+                            "concat_4_8", "concat_4_9", "concat_4_10", "concat_4_11", "concat_4_12", 
+                            "concat_4_13", "concat_4_14", "concat_4_15", "concat_4_16", "concat_4_17", 
+                            "concat_4_18", "concat_4_19", "concat_4_20", "concat_4_21", "concat_4_22", 
+                            "concat_4_23", "concat_4_24", "concat_4_25", "concat_4_26", "concat_4_27", 
+                            "concat_4_28", "concat_4_29", "concat_4_30", "concat_4_31", "concat_4_32", 
+                            "concat_4_33", "concat_4_34", "concat_4_35", "concat_4_36", 
+                            "concat_5_1", "concat_5_2", "concat_5_3", 
+                            "concat_5_4", "concat_5_5", "concat_5_6", "concat_5_7", "concat_5_8", 
+                            "concat_5_9", "concat_5_10", "concat_5_11", "concat_5_12", "concat_5_13", 
+                            "concat_5_14", "concat_5_15", "concat_5_16", "concat_5_17", "concat_5_18", 
+                            "concat_5_19", "concat_5_20", "concat_5_21", "concat_5_22", "concat_5_23", 
+                            "concat_5_24", "fc6"]
+                },
+
+            "DenseNet-169": {
+                    "dir": "./decoding/results/featPred_Deeprecon_DenseNet169_4096Units_Unave_Prediction/prediction_accuracy/caffe/DenseNet_169/", 
+                    "layers": ["conv1_abs", "concat_2_1", "concat_2_2", "concat_2_3", "concat_2_4", "concat_2_5", 
+                            "concat_2_6", "concat_3_1", "concat_3_2", "concat_3_3", "concat_3_4", 
+                            "concat_3_5", "concat_3_6", "concat_3_7", "concat_3_8", "concat_3_9", 
+                            "concat_3_10", "concat_3_11", "concat_3_12", "concat_4_1", "concat_4_2", 
+                            "concat_4_3", "concat_4_4", "concat_4_5", "concat_4_6", "concat_4_7", 
+                            "concat_4_8", "concat_4_9", "concat_4_10", "concat_4_11", "concat_4_12", 
+                            "concat_4_13", "concat_4_14", "concat_4_15", "concat_4_16", "concat_4_17", 
+                            "concat_4_18", "concat_4_19", "concat_4_20", "concat_4_21", "concat_4_22", 
+                            "concat_4_23", "concat_4_24", "concat_4_25", "concat_4_26", "concat_4_27", 
+                            "concat_4_28", "concat_4_29", "concat_4_30", "concat_4_31", "concat_4_32", 
+                            "concat_5_1", "concat_5_2", "concat_5_3", 
+                            "concat_5_4", "concat_5_5", "concat_5_6", "concat_5_7", "concat_5_8", 
+                            "concat_5_9", "concat_5_10", "concat_5_11", "concat_5_12", "concat_5_13", 
+                            "concat_5_14", "concat_5_15", "concat_5_16", "concat_5_17", "concat_5_18", 
+                            "concat_5_19", "concat_5_20", "concat_5_21", "concat_5_22", "concat_5_23", 
+                            "concat_5_24", "concat_5_25", "concat_5_26", "concat_5_27", "concat_5_28", 
+                            "concat_5_29", "concat_5_30", "concat_5_31", "concat_5_32", "fc6"]
+                },
+
+            "DenseNet-201": {
+                    "dir": "./decoding/results/featPred_Deeprecon_DenseNet201_4096Units_Unave_Prediction/prediction_accuracy/caffe/DenseNet_201/", 
+                    "layers": ["conv1_abs", "concat_2_1", "concat_2_2", "concat_2_3", "concat_2_4", "concat_2_5", 
+                            "concat_2_6", "concat_3_1", "concat_3_2", "concat_3_3", "concat_3_4", 
+                            "concat_3_5", "concat_3_6", "concat_3_7", "concat_3_8", "concat_3_9", 
+                            "concat_3_10", "concat_3_11", "concat_3_12", "concat_4_1", "concat_4_2", 
+                            "concat_4_3", "concat_4_4", "concat_4_5", "concat_4_6", "concat_4_7", 
+                            "concat_4_8", "concat_4_9", "concat_4_10", "concat_4_11", "concat_4_12", 
+                            "concat_4_13", "concat_4_14", "concat_4_15", "concat_4_16", "concat_4_17", 
+                            "concat_4_18", "concat_4_19", "concat_4_20", "concat_4_21", "concat_4_22", 
+                            "concat_4_23", "concat_4_24", "concat_4_25", "concat_4_26", "concat_4_27", 
+                            "concat_4_28", "concat_4_29", "concat_4_30", "concat_4_31", "concat_4_32", 
+                            "concat_4_33", "concat_4_34", "concat_4_35", "concat_4_36", "concat_4_37", 
+                            "concat_4_38", "concat_4_39", "concat_4_40", "concat_4_41", "concat_4_42", 
+                            "concat_4_43", "concat_4_44", "concat_4_45", "concat_4_46", "concat_4_47", 
+                            "concat_4_48", "concat_5_1", "concat_5_2", "concat_5_3", 
+                            "concat_5_4", "concat_5_5", "concat_5_6", "concat_5_7", "concat_5_8", 
+                            "concat_5_9", "concat_5_10", "concat_5_11", "concat_5_12", "concat_5_13", 
+                            "concat_5_14", "concat_5_15", "concat_5_16", "concat_5_17", "concat_5_18", 
+                            "concat_5_19", "concat_5_20", "concat_5_21", "concat_5_22", "concat_5_23", 
+                            "concat_5_24", "concat_5_25", "concat_5_26", "concat_5_27", "concat_5_28", 
+                            "concat_5_29", "concat_5_30", "concat_5_31", "fc6"]
+                },
+
+            "ResNet-50-v2": {
+                    "dir": "./decoding/results/featPred_Deeprecon_ResNet50v2_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/resnet_v2_50", 
+                    "layers": ["resnet_v2_50:conv1_abs", "resnet_v2_50:block1:unit_1:bottleneck_v2", "resnet_v2_50:block1:unit_2:bottleneck_v2", 
+                            "resnet_v2_50:block1:unit_3:bottleneck_v2", "resnet_v2_50:block2:unit_1:bottleneck_v2", 
+                            "resnet_v2_50:block2:unit_2:bottleneck_v2", "resnet_v2_50:block2:unit_3:bottleneck_v2", 
+                            "resnet_v2_50:block2:unit_4:bottleneck_v2", "resnet_v2_50:block3:unit_1:bottleneck_v2", 
+                            "resnet_v2_50:block3:unit_2:bottleneck_v2", "resnet_v2_50:block3:unit_3:bottleneck_v2", 
+                            "resnet_v2_50:block3:unit_4:bottleneck_v2", "resnet_v2_50:block3:unit_5:bottleneck_v2", 
+                            "resnet_v2_50:block3:unit_6:bottleneck_v2", "resnet_v2_50:block4:unit_1:bottleneck_v2", 
+                            "resnet_v2_50:block4:unit_2:bottleneck_v2", "resnet_v2_50:block4:unit_3:bottleneck_v2", 
+                            "resnet_v2_50:logits"]
+                },
+
+            "ResNet-101-v2": {
+                    "dir": "./decoding/results/featPred_Deeprecon_ResNet101v2TF_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/resnet_v2_101", 
+                    "layers": ["resnet_v2_101:conv1_abs", "resnet_v2_101:block1:unit_1:bottleneck_v2", "resnet_v2_101:block1:unit_2:bottleneck_v2", 
+                            "resnet_v2_101:block1:unit_3:bottleneck_v2", "resnet_v2_101:block2:unit_1:bottleneck_v2", 
+                            "resnet_v2_101:block2:unit_2:bottleneck_v2", "resnet_v2_101:block2:unit_3:bottleneck_v2", 
+                            "resnet_v2_101:block2:unit_4:bottleneck_v2", "resnet_v2_101:block3:unit_1:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_2:bottleneck_v2", "resnet_v2_101:block3:unit_3:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_4:bottleneck_v2", "resnet_v2_101:block3:unit_5:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_6:bottleneck_v2", "resnet_v2_101:block3:unit_7:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_8:bottleneck_v2", "resnet_v2_101:block3:unit_9:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_10:bottleneck_v2", "resnet_v2_101:block3:unit_11:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_12:bottleneck_v2", "resnet_v2_101:block3:unit_13:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_14:bottleneck_v2", "resnet_v2_101:block3:unit_15:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_16:bottleneck_v2", "resnet_v2_101:block3:unit_17:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_18:bottleneck_v2", "resnet_v2_101:block3:unit_19:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_20:bottleneck_v2", "resnet_v2_101:block3:unit_21:bottleneck_v2", 
+                            "resnet_v2_101:block3:unit_22:bottleneck_v2", "resnet_v2_101:block3:unit_23:bottleneck_v2", 
+                            "resnet_v2_101:block4:unit_1:bottleneck_v2", "resnet_v2_101:block4:unit_2:bottleneck_v2", 
+                            "resnet_v2_101:block4:unit_3:bottleneck_v2", "resnet_v2_101:logits"]
+                },
+
+            "ResNet-152-v2": {
+                    "dir": "./decoding/results/featPred_Deeprecon_ResNet152v2TF_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/resnet_v2_152", 
+                    "layers": ["resnet_v2_152:conv1_abs", "resnet_v2_152:block1:unit_1:bottleneck_v2", "resnet_v2_152:block1:unit_2:bottleneck_v2", 
+                            "resnet_v2_152:block1:unit_3:bottleneck_v2", "resnet_v2_152:block2:unit_1:bottleneck_v2", 
+                            "resnet_v2_152:block2:unit_2:bottleneck_v2", "resnet_v2_152:block2:unit_3:bottleneck_v2", 
+                            "resnet_v2_152:block2:unit_4:bottleneck_v2", "resnet_v2_152:block2:unit_5:bottleneck_v2", 
+                            "resnet_v2_152:block2:unit_6:bottleneck_v2", "resnet_v2_152:block2:unit_7:bottleneck_v2", 
+                            "resnet_v2_152:block2:unit_8:bottleneck_v2", "resnet_v2_152:block3:unit_1:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_2:bottleneck_v2", "resnet_v2_152:block3:unit_3:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_4:bottleneck_v2", "resnet_v2_152:block3:unit_5:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_6:bottleneck_v2", "resnet_v2_152:block3:unit_7:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_8:bottleneck_v2", "resnet_v2_152:block3:unit_9:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_10:bottleneck_v2", "resnet_v2_152:block3:unit_11:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_12:bottleneck_v2", "resnet_v2_152:block3:unit_13:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_14:bottleneck_v2", "resnet_v2_152:block3:unit_15:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_16:bottleneck_v2", "resnet_v2_152:block3:unit_17:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_18:bottleneck_v2", "resnet_v2_152:block3:unit_19:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_20:bottleneck_v2", "resnet_v2_152:block3:unit_21:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_22:bottleneck_v2", "resnet_v2_152:block3:unit_23:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_24:bottleneck_v2", "resnet_v2_152:block3:unit_25:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_26:bottleneck_v2", "resnet_v2_152:block3:unit_27:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_28:bottleneck_v2", "resnet_v2_152:block3:unit_29:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_30:bottleneck_v2", "resnet_v2_152:block3:unit_31:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_32:bottleneck_v2", "resnet_v2_152:block3:unit_33:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_34:bottleneck_v2", "resnet_v2_152:block3:unit_35:bottleneck_v2", 
+                            "resnet_v2_152:block3:unit_36:bottleneck_v2", "resnet_v2_152:block4:unit_1:bottleneck_v2", 
+                            "resnet_v2_152:block4:unit_2:bottleneck_v2", "resnet_v2_152:block4:unit_3:bottleneck_v2", 
+                            "resnet_v2_152:logits"]
+                },
+
+            "ResNet-18": {
+                    "dir": "./decoding/results/featPred_Deeprecon_ResNet18_4096Units_Unave_Prediction/prediction_accuracy/pytorch/resnet18", 
+                    "layers": ["conv1_abs", "layer1", "layer2", "layer3", "layer4", "fc"]
+                },
+
+            "ResNet-34": {
+                    "dir": "./decoding/results/featPred_Deeprecon_ResNet34_4096Units_Unave_Prediction/prediction_accuracy/pytorch/resnet34", 
+                    "layers": ["conv1_abs", "layer1", "layer2", "layer3", "layer4", "fc"]
+                },
+
+            "Inception-v1": {
+                    "dir": "./decoding/results/featPred_Deeprecon_Inceptionv1_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/inception_v1", 
+                    "layers": ["Conv2d_1a_7x7_abs", "Conv2d_2c_3x3", "Mixed_3b", "Mixed_3c", "Mixed_4b", "Mixed_4c", 
+                            "Mixed_4d", "Mixed_4e", "Mixed_4f", "Mixed_5b", "Mixed_5c", "Logits"]
+                },
+
+            "Inception-v2": {
+                    "dir": "./decoding/results/featPred_Deeprecon_Inceptionv2_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/inception_v2", 
+                    "layers": ["Conv2d_1a_7x7_abs", "Conv2d_2c_3x3", "Mixed_3b", "Mixed_3c", "Mixed_4a", "Mixed_4b", "Mixed_4c", 
+                            "Mixed_4d", "Mixed_4e", "Mixed_5a", "Mixed_5b", "Mixed_5c", "Logits"]
+                },
+
+            "Inception-v3": {
+                    "dir": "./decoding/results/featPred_Deeprecon_Inceptionv3TF_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/inception_v3", 
+                    "layers": ["Conv2d_1a_3x3_abs", "Conv2d_2b_3x3","Conv2d_4a_3x3", "Mixed_5b", "Mixed_5c", "Mixed_5d",
+                            "Mixed_6a", "Mixed_6b", "Mixed_6c", "Mixed_6d", "Mixed_6e", "Mixed_7a",  "Mixed_7b",  "Mixed_7c", "Logits"]
+                },
+
+            "Inception-v4": {
+                    "dir": "./decoding/results/featPred_Deeprecon_Inceptionv4TF_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/inception_v4", 
+                    "layers": ["Conv2d_1a_3x3_abs", "Conv2d_2a_3x3", "Conv2d_2b_3x3", "Mixed_3a", "Mixed_4a", "Mixed_5b", "Mixed_5c", "Mixed_5d",
+                            "Mixed_5e", "Mixed_6a", "Mixed_6b", "Mixed_6c", "Mixed_6d", "Mixed_6e", "Mixed_6f", "Mixed_6g", "Mixed_7a", 
+                            "Mixed_7b",  "Mixed_7c", "Mixed_7d", "Logits"]
+                },
+
+            "Inception-ResNet-v2": { 
+                    "dir": "./decoding/results/featPred_Deeprecon_InceptResv2Caffe_4096Units_Unave_Prediction/prediction_accuracy/caffe/InceptionResNet-v2", 
+                    "layers": ["conv1_3x3_s2_abs", "conv4_3x3", "stem_concat", "inception_resnet_v2_a1_residual_eltwise", 
+                            "inception_resnet_v2_a2_residual_eltwise", "inception_resnet_v2_a3_residual_eltwise", "inception_resnet_v2_a4_residual_eltwise", 
+                            "inception_resnet_v2_a5_residual_eltwise", "inception_resnet_v2_a6_residual_eltwise", "inception_resnet_v2_a7_residual_eltwise", 
+                            "inception_resnet_v2_a8_residual_eltwise", "inception_resnet_v2_a9_residual_eltwise", "inception_resnet_v2_a10_residual_eltwise", 
+                            "reduction_a_concat", "inception_resnet_v2_b1_residual_eltwise", "inception_resnet_v2_b2_residual_eltwise", 
+                            "inception_resnet_v2_b3_residual_eltwise", "inception_resnet_v2_b4_residual_eltwise", "inception_resnet_v2_b5_residual_eltwise", 
+                            "inception_resnet_v2_b6_residual_eltwise", "inception_resnet_v2_b7_residual_eltwise", "inception_resnet_v2_b8_residual_eltwise", 
+                            "inception_resnet_v2_b9_residual_eltwise", "inception_resnet_v2_b10_residual_eltwise", "inception_resnet_v2_b11_residual_eltwise", 
+                            "inception_resnet_v2_b12_residual_eltwise", "inception_resnet_v2_b13_residual_eltwise", "inception_resnet_v2_b14_residual_eltwise", 
+                            "inception_resnet_v2_b15_residual_eltwise", "inception_resnet_v2_b16_residual_eltwise", "inception_resnet_v2_b17_residual_eltwise", 
+                            "inception_resnet_v2_b18_residual_eltwise", "inception_resnet_v2_b19_residual_eltwise", "inception_resnet_v2_b20_residual_eltwise", 
+                            "reduction_b_concat", "inception_resnet_v2_c1_residual_eltwise", "inception_resnet_v2_c2_residual_eltwise", 
+                            "inception_resnet_v2_c3_residual_eltwise", "inception_resnet_v2_c4_residual_eltwise", "inception_resnet_v2_c5_residual_eltwise", 
+                            "inception_resnet_v2_c6_residual_eltwise", "inception_resnet_v2_c7_residual_eltwise", "inception_resnet_v2_c8_residual_eltwise", 
+                            "inception_resnet_v2_c9_residual_eltwise", "inception_resnet_v2_c10_residual_eltwise", "classifier"]
+                },
+
+            "SqueezeNet-1.0": {
+                    "dir": "./decoding/results/featPred_Deeprecon_SqueezeNet10_4096Units_Unave_Prediction/prediction_accuracy/caffe/SqueeseNet1.0", 
+                    "layers": ["conv1_abs", "fire2:concat", "fire3:concat", "fire4:concat", "fire5:concat", "fire6:concat", "fire7:concat", 
+                            "fire8:concat", "fire9:concat", "pool10"]
+                },
+
+            "SqueezeNet-1.1": {
+                    "dir": "./decoding/results/featPred_Deeprecon_SqueezeNet_4096Units_Unave_Prediction/prediction_accuracy/caffe/SqueeseNet", 
+                    "layers": ["conv1_abs", "fire2:concat", "fire3:concat", "fire4:concat", "fire5:concat", "fire6:concat", "fire7:concat", 
+                            "fire8:concat", "fire9:concat", "pool10"]
+                },
+
+            "NASNet-Mobile": {
+                    "dir": "./decoding/results/featPred_Deeprecon_NasnetMobile_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/nasnet_mobile", 
+                    "layers": ["conv0_abs", "Stem", "Cell_0", "Cell_1", "Cell_2", "Cell_3", "Cell_4", "Cell_5", 
+                            "Cell_6", "Cell_7", "Cell_8", "Cell_9", "Cell_10", "Cell_11", "Logits"]
+                },
+
+            "NASNet-Large": {
+                    "dir": "./decoding/results/featPred_Deeprecon_NasnetLarge_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/nasnet_large", 
+                    "layers": ["conv0_abs", "Stem", "Cell_0", "Cell_1", "Cell_2", "Cell_3", "Cell_4", "Cell_5", 
+                            "Cell_6", "Cell_7", "Cell_8", "Cell_9", "Cell_10", "Cell_11", 
+                            "Cell_12", "Cell_13", "Cell_14", "Cell_15", "Cell_16", "Cell_17", "Logits"]
+                },
+
+            "PNASNet-Large": {
+                    "dir": "./decoding/results/featPred_Deeprecon_PNasnetLarge_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/pnasnet_large", 
+                    "layers": ["conv0_abs", "Stem", "Cell_0", "Cell_1", "Cell_2", "Cell_3", "Cell_4", "Cell_5", 
+                            "Cell_6", "Cell_7", "Cell_8", "Cell_9", "Cell_10", "Cell_11", "Logits"]
+                },
+
+            "CORnet-Z": {
+                    "dir": "./decoding/results/featPred_Deeprecon_CORnetZ_4096Units_Unave_Prediction/prediction_accuracy/pytorch/CORnet_Z", 
+                    "layers": ["V1_conv_abs", "V1_output", "V2_output", "V4_output", "IT_output", "decoder_linear"]
+                },
+
+            "CORnet-R": {
+                    "dir": "./decoding/results/featPred_Deeprecon_CORnetR_4096Units_Unave_Prediction/prediction_accuracy/pytorch/CORnet_R", 
+                    "layers": ["V1_conv1_abs", "V1_output", "V2_output", "V4_output", "IT_output", "decoder_linear"]
+                },
+
+            "CORnet-S": {
+                    "dir": "./decoding/results/featPred_Deeprecon_CORnetS_4096Units_Unave_Prediction/prediction_accuracy/pytorch/CORnet_S", 
+                    "layers": ["V1_conv1_abs", "V1_output", "V2_output", "V4_output", "IT_output", "decoder_linear"]
+                },
+
+            "MobileNet-v2-1.4-224": {
+                    "dir": "./decoding/results/featPred_Deeprecon_Mobilenetv2014224_4096Units_Unave_Prediction/prediction_accuracy/tensorflow/mobilenet_v2_1.4_224", 
+                    "layers": ["layer_1_abs", "layer_2:output", "layer_3:output", "layer_4:output", "layer_5:output", "layer_6:output", 
+                            "layer_7:output", "layer_8:output", "layer_9:output", "layer_10:output", "layer_11:output", 
+                            "layer_12:output", "layer_13:output", "layer_14:output", "layer_15:output", "layer_16:output", 
+                            "layer_17:output", "layer_18:output", "Logits"]
+                }
+        }
+}
