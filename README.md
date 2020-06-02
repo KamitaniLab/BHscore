@@ -17,11 +17,14 @@ This repository contains data and scripts to repproduce the results from the pap
 ### 1. Preparation
 
 #### fMRI data
+
 We used fMRI data from [a previous study from our lab](https://github.com/KamitaniLab/DeepImageReconstruction). To download fMRI data, run `data/download.sh`. About xxGB storage is needed. You can also download fMRI data manually from [figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577) (In that case, place the downloaded files to `data/fmri_data`). 
 
 #### Visual images
-Images from the ILSVRC2012 dataset were used in our study. For copyright reasons, we cannot distribute the images. If you need to use the same images used in our study, please refer to Visual images section in <https://github.com/KamitaniLab/GenericObjectDecoding>.  
 
+Images from the ILSVRC2012 dataset were used in our study.
+For copyright reasons, we do not distribute the images.
+You can request us the images via <https://forms.gle/ujvA34948Xg49jdn9>.
 
 ### 2. DNN feature extraction
 
