@@ -40,7 +40,7 @@ We recommend <https://github.com/tomrunia/TF_FeatureExtraction> to extract featu
 
 ### 3. Decoding analysis
 
-*Optional*: open `settings.json` and configure settings below if you need to change these settings. 
+*Optional*: configure settings below if you need to change these settings. 
 * ROI (default: V1, V2, V3, V4, HVC)
 * subjects (default: sub-01, sub-02, sub-03)
 * DNN layers (If not specified, all layers are used)

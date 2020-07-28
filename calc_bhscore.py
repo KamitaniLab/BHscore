@@ -8,8 +8,8 @@ import hdf5storage
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--json', '-j', default='settings.json', help='json file that contains options')
-parser.add_argument('--output', '-o', default='bhscores.mat', help='output file path')
+parser.add_argument('--json', '-j', default='bhscore_dnn_options.json', help='json file that contains options')
+parser.add_argument('--output', '-o', default=None, help='output file path')
 parser.add_argument('--nunit', type=int, default=1000, help='Number of unit to select from each layer')
 parser.add_argument('--pval', '-p', type=float, default=0.05,
                     help='threshold of p value for unit selection based on prediction accuracy')
@@ -44,7 +44,7 @@ def load_data(results_options, subjects, rois, nunit):
 
                     # select specified number of units
                     if nunit < len(predacc):
-                        np.random.seed(0)
+                        np.random.seed(1)
                         predacc = np.random.choice(predacc, size=nunit, replace=False)
 
                     predacc_allroi.append(predacc)
@@ -107,6 +107,24 @@ def compute_bhscore(predacc_list, pval_threshold):
     return bhscore, best_rois
 
 
+def random_sample_bhscore(predacc_list, pval_threshold, n_sample_layer=5, n_sample=100):
+    """
+    Randomly sample specified number of layers and compute mean BH score
+    """
+
+    bhscore_list = np.zeros(n_sample)
+    for i_s in range(n_sample):
+        # sample layers
+        sample_index = np.random.choice(np.arange(1, len(predacc_list)-1), size=n_sample_layer - 2, replace=False)
+        sample_index = np.sort(sample_index)
+        predacc_list_sampled = [predacc_list[0]] + [predacc_list[i] for i in sample_index] + [predacc_list[-1]]
+
+        bhscore, _ = compute_bhscore(predacc_list_sampled, pval_threshold)
+        bhscore_list[i_s] = bhscore
+
+    return bhscore_list
+
+
 def main():
     # Load settings
     with open(opt.json, 'r') as f:
@@ -123,23 +141,23 @@ def main():
     # compute BH score
     networks = []
     bhscores = []
-    best_roi_distributions = []
     print('Computing BH score')
     for dnn in results_feature_prediction.keys():
         res = results_feature_prediction[dnn]
-        bhscore, best_roi = compute_bhscore(res, opt.pval)
+        bhscore = random_sample_bhscore(res, opt.pval)
 
         networks.append(dnn)
         bhscores.append(bhscore)
-        best_roi_distributions.append(best_roi)
 
-        print('%s: %.2f' % (dnn, bhscore))
+        print('%s: %.2f' % (dnn, np.mean(bhscore)))
 
     # write result to file
-    output_path = opt.output
+    if opt.output is None:
+        output_path = __file__.replace('.py', '.mat')
+    else:
+        output_path = opt.output
     mdict = {'bhscores': bhscores,
-             'networks': networks,
-             'best_roi_distributions': best_roi_distributions}
+             'networks': networks}
     hdf5storage.savemat(output_path, mdict, trancate_existing=True)
 
 
