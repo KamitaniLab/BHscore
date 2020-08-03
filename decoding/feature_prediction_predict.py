@@ -5,6 +5,7 @@ from __future__ import print_function
 
 import glob
 import os
+import argparse
 from itertools import product
 from time import time
 import hdf5storage
@@ -22,11 +23,21 @@ from fastl2lir import FastL2LiR
 
 # Settings ###################################################################
 
-# network name
-network = <Put your network name here>
+parser = argparse.ArgumentParser()
+parser.add_argument('--net', '-n', default=None, help='Target deep neural network (e.g., "caffe/AlexNet")')
+args = parser.parse_args()
+
+# Network name
+network = None
+
+if args.net is not None:
+    network = args.net
+
+if network is None:
+    raise RuntimeError('Target deep neural network is not specified. Please give "--net" option to the script or specify the networn in the script ("network").')
 
 # Brain data
-brain_dir = '../data/fmri_data'
+brain_dir = '../data/fmri'
 subjects_list = {
     'sub-01':  'sub-01_perceptionNaturalImageTest_original_VC.h5',
     'sub-02':  'sub-02_perceptionNaturalImageTest_original_VC.h5',
@@ -39,30 +50,30 @@ rois_list = {
     'V1'  : 'ROI_V1 = 1',
     'V2'  : 'ROI_V2 = 1',
     'V3'  : 'ROI_V3 = 1',
-    'V4'  : 'ROI_hV4 = 1',
+    'V4'  : 'ROI_V4 = 1',
 }
 
 # Image features
-features_dir = '../data/features'
+features_dir = '../data/features/ImageNetTest'
 features_list = [d for d in os.listdir(os.path.join(features_dir, network)) if os.path.isdir(os.path.join(features_dir, network, d))]  # All layers
 print('DNN feature')
 print(os.path.join(features_dir, network))
 print('Layers')
 print(features_list)
 features_list = features_list[::-1] # Start decoding from deep layers
-feature_index_file = 'index_random.mat'
 
 # Trained models
-models_dir_root = os.path.join('./results/feature_decoders/', network)
+models_dir_root = '../data/feature_decoders/ImageNetTraining'
 
 # Results directory
-results_dir_root = os.path.join('./results/decoded_features/', network)
+results_dir_decoded_features_root = '../data/decoded_features/ImageNetTest'
+results_dir_decoding_accuracy_root = '../data/decoding_accuracy/ImageNetTest'
 
 # Misc settings
 chunk_axis = None
 # The features were divided into chunks along chunk_axis in decoder training.
 
-label_name = 'stimulus_name'
+label_name = 'image_index'
 
 # Main #######################################################################
 
@@ -77,9 +88,8 @@ data_brain = {sbj: bdpy.BData(os.path.join(brain_dir, dat_file))
 data_features = Features(os.path.join(features_dir, network))
 
 # Initialize directories -------------------------------------------
-makedir_ifnot(results_dir_root)
-makedir_ifnot(os.path.join(results_dir_root, 'decoded_features', network))
-makedir_ifnot(os.path.join(results_dir_root, 'prediction_accuracy', network))
+makedir_ifnot(os.path.join(results_dir_decoded_features_root, network))
+makedir_ifnot(os.path.join(results_dir_decoding_accuracy_root, network))
 makedir_ifnot('tmp')
 
 # Save runtime information -----------------------------------------
@@ -91,8 +101,8 @@ runtime_params = {
     'target DNN features'      : os.path.abspath(os.path.join(features_dir, network)),
     'target DNN layers'        : features_list,
 }
-dump_info(os.path.join(results_dir_root, 'decoded_features', network), script=__file__, parameters=runtime_params)
-dump_info(os.path.join(results_dir_root, 'prediction_accuracy', network), script=__file__, parameters=runtime_params)
+dump_info(os.path.join(results_dir_decoded_features_root, network), script=__file__, parameters=runtime_params)
+dump_info(os.path.join(results_dir_decoding_accuracy_root, network), script=__file__, parameters=runtime_params)
 
 # Analysis loop ----------------------------------------------------
 print('----------------------------------------')
@@ -107,8 +117,8 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
     # Distributed computation setup
     # -----------------------------
     analysis_id = analysis_basename + '-' + sbj + '-' + roi + '-' + feat
-    results_dir_prediction = os.path.join(results_dir_root, 'decoded_features', network, feat, sbj, roi)
-    results_dir_accuracy = os.path.join(results_dir_root, 'prediction_accuracy', network, feat, sbj, roi)
+    results_dir_prediction = os.path.join(results_dir_decoded_features_root, network, feat, sbj, roi)
+    results_dir_accuracy = os.path.join(results_dir_decoding_accuracy_root, network, feat, sbj, roi)
 
     if os.path.exists(results_dir_prediction):
         print('%s is already done. Skipped.' % analysis_id)
@@ -127,16 +137,12 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
     start_time = time()
 
     # Brain data
-    x = data_brain[sbj].select(rois_list[roi])        # Brain data
-    x_labels = data_brain[sbj].get_label(label_name)  # Image labels in the brain data
+    x = data_brain[sbj].select(rois_list[roi])               # Brain data
+    x_labels = data_brain[sbj].select(label_name).flatten()  # Image labels in the brain data
 
     # Target features and image labels (file names)
     y = data_features.get_features(feat)
-    y_labels = data_features.labels
-
-    # extract sampled features
-    sample_index = hdf5storage.loadmat(os.path.join(models_dir_root, network, feat))['index_random']
-    y = y[:, sample_index]
+    y_labels = data_features.index
 
     # Averaging brain data
     x_labels_unique = np.unique(x_labels)
