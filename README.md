@@ -1,6 +1,6 @@
 # Brain Hierarchy Score
 
-This repository contains data and scripts to repproduce the results from the paper ... by Soma Nonaka, Kei Majima, Shuntaro C. Aoki, and Yukiyasu Kamitani. 
+This repository contains data and scripts to repproduce the results from [Nonaka, Majima, Aoki, and Kamitani (2020) Brain hierarchy score: Which deep neural networks are hierarchically brain-like?](https://www.biorxiv.org/content/10.1101/2020.07.22.216713).
 
 ## Requirements
 * BdPy (pip install bdpy)
@@ -18,7 +18,7 @@ This repository contains data and scripts to repproduce the results from the pap
 
 #### fMRI data
 
-We used fMRI data from [a previous study from our lab](https://github.com/KamitaniLab/DeepImageReconstruction). To download fMRI data, run `data/download.sh`. About xxGB storage is needed. You can also download fMRI data manually from [figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577) (In that case, place the downloaded files to `data/fmri_data`). 
+We used fMRI data collected in [Shen, Horikawa, Majima, and Kamitani (2019) Deep image reconstruction from human brain activity. PLOS Comput Biol](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006633). To download fMRI data, run `data/download_fmri.sh`. About xxGB storage is needed. You can also download fMRI data manually from [figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577) (In that case, place the downloaded files to `data/fmri_data`). 
 
 #### Visual images
 
