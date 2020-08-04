@@ -39,9 +39,9 @@ if network is None:
 # Brain data
 brain_dir = '../data/fmri'
 subjects_list = {
-    'sub-01':  'sub-01_perceptionNaturalImageTest_original_VC.h5',
-    'sub-02':  'sub-02_perceptionNaturalImageTest_original_VC.h5',
-    'sub-03':  'sub-03_perceptionNaturalImageTest_original_VC.h5',
+    'sub-01':  'sub-01_perceptionNaturalImageTest_VC_v2.h5',
+    'sub-02':  'sub-02_perceptionNaturalImageTest_VC_v2.h5',
+    'sub-03':  'sub-03_perceptionNaturalImageTest_VC_v2.h5',
 }
 
 
@@ -116,7 +116,7 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
 
     # Distributed computation setup
     # -----------------------------
-    analysis_id = analysis_basename + '-' + sbj + '-' + roi + '-' + feat
+    analysis_id = analysis_basename + '-' + sbj + '-' + roi + '-' + network + '-' + feat
     results_dir_prediction = os.path.join(results_dir_decoded_features_root, network, feat, sbj, roi)
     results_dir_accuracy = os.path.join(results_dir_decoding_accuracy_root, network, feat, sbj, roi)
 

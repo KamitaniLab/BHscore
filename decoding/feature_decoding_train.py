@@ -44,8 +44,8 @@ if network is None:
 brain_dir = '../data/fmri'
 subjects_list = {
     'sub-01':  'sub-01_perceptionNaturalImageTraining_VC_v2.h5',
-    'sub-02':  'sub-01_perceptionNaturalImageTraining_VC_v2.h5',
-    'sub-03':  'sub-01_perceptionNaturalImageTraining_VC_v2.h5',
+    'sub-02':  'sub-02_perceptionNaturalImageTraining_VC_v2.h5',
+    'sub-03':  'sub-03_perceptionNaturalImageTraining_VC_v2.h5',
 }
 
 label_name = 'image_index'
