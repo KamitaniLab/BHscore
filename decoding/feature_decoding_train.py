@@ -43,9 +43,9 @@ if network is None:
 # Brain data
 brain_dir = '../data/fmri'
 subjects_list = {
-    'sub-01':  'sub-01_perceptionNaturalImageTraining_original_VC.h5',
-    'sub-02':  'sub-02_perceptionNaturalImageTraining_original_VC.h5',
-    'sub-03':  'sub-03_perceptionNaturalImageTraining_original_VC.h5',
+    'sub-01':  'sub-01_perceptionNaturalImageTraining_VC_v2.h5',
+    'sub-02':  'sub-01_perceptionNaturalImageTraining_VC_v2.h5',
+    'sub-03':  'sub-01_perceptionNaturalImageTraining_VC_v2.h5',
 }
 
 label_name = 'image_index'
@@ -76,9 +76,6 @@ feature_index_file = 'index_random1000.mat'
 
 # Model parameters
 alpha = 100
-
-# number of units to predict
-n_sample = 1000
 
 # Results directory
 results_dir_root = '../data/feature_decoders/ImageNetTraining'
@@ -140,7 +137,7 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
 
     # Setup
     # -----
-    analysis_id = analysis_basename + '-' + sbj + '-' + roi + '-' + feat
+    analysis_id = analysis_basename + '-' + sbj + '-' + roi + '-' + network + '-' + feat
     results_dir = os.path.join(
         results_dir_root, network, feat, sbj, roi, 'model')
     makedir_ifnot(results_dir)
@@ -223,7 +220,7 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
     start_time = time()
 
     train = ModelTraining(model, x, y)
-    train.id = analysis_basename + '-' + sbj + '-' + roi + '-' + feat
+    train.id = analysis_id
     train.model_parameters = model_param
 
     train.X_normalize = {'mean': x_mean,
