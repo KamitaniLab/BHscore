@@ -103,8 +103,7 @@ print('Loading data')
 
 data_brain = {sbj: bdpy.BData(os.path.join(brain_dir, dat_file))
               for sbj, dat_file in subjects_list.items()}
-data_features = Features(os.path.join(
-    features_dir, network))
+data_features = Features(os.path.join(features_dir, network))
 
 # Initialize directories -----------------------------------------------------
 makedir_ifnot(results_dir_root)
@@ -182,8 +181,7 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
 
     # Y index to sort Y by X (matching samples)
     # -----------------------------------------
-    y_index = np.array([np.where(np.array(y_labels) == xl)
-                        for xl in x_labels]).flatten()
+    y_index = np.array([np.where(np.array(y_labels) == xl) for xl in x_labels]).flatten()
 
     # Save normalization parameters
     # -----------------------------
@@ -195,12 +193,10 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
         save_file = os.path.join(results_dir, sv + '.mat')
         if not os.path.exists(save_file):
             try:
-                save_array(
-                    save_file, norm_param[sv], key=sv, dtype=np.float32, sparse=False)
+                save_array(save_file, norm_param[sv], key=sv, dtype=np.float32, sparse=False)
                 print('Saved %s' % save_file)
             except IOError:
-                warnings.warn(
-                    'Failed to save %s. Possibly double running.' % save_file)
+                warnings.warn('Failed to save %s. Possibly double running.' % save_file)
 
     # Preparing learning
     # ------------------
