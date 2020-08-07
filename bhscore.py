@@ -16,11 +16,6 @@ def compute_bhscore(predacc_list, pval_threshold):
         # if prediction accuracy is nan, convert it to zero
         predacc[np.isnan(predacc)] = 0
 
-        # if a unit cannot be predicted from all ROIs, remove it
-        for i in range(predacc.shape[0] - 1, 0, -1):
-            if np.sum(predacc[:, i]) == 0:
-                predacc = np.delete(predacc, i, 1)
-
         # for each CNN units, search roi which has the highest prediction accuracy
         pred_max = np.max(predacc, axis=0)
         pred_max_ind = np.argmax(predacc, axis=0)
