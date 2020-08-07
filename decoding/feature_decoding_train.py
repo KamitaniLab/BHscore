@@ -20,7 +20,7 @@ import bdpy
 from bdpy.ml import ModelTraining
 from bdpy.dataform import Features, save_array
 from bdpy.distcomp import DistComp
-from bdpy.util import makedir_ifnot, dump_info
+from bdpy.util import makedir_ifnot
 
 from fastl2lir import FastL2LiR
 
@@ -121,7 +121,6 @@ runtime_params = {
     'target DNN features':      os.path.abspath(os.path.join(features_dir, network)),
     'target DNN layers':        features_list,
 }
-dump_info(info_dir, script=__file__, parameters=runtime_params)
 
 # Analysis loop --------------------------------------------------------------
 print('----------------------------------------')
