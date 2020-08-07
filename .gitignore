@@ -1,4 +1,7 @@
-.ipynb_cheskpoints
+.ipynb_checkpoints/
 .vscode
 results/
 copy_files.py
+*.log
+*.pyc
+.DS_Store
