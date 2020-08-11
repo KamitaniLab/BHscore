@@ -19,7 +19,7 @@ This repository contains code and data to reproduce the main results of [Nonaka,
 
 We used fMRI data collected in [Shen, Horikawa, Majima, and Kamitani (2019) Deep image reconstruction from human brain activity. PLOS Comput Biol](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006633).
 To download fMRI data (about 2.4 GB in total), run `data/download_fmri.sh`.
-You can also download fMRI data manually from [figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577) (see <data/fmri/README.md> for details).
+You can also download fMRI data manually from [figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577) (see [data/fmri/README.md](data/fmri/README.md) for details).
 All fMRI data should be placed in`data/fmri_data`.
 
 ### Stimulus images
@@ -38,7 +38,7 @@ You can download the files (about 6.8 GB in total) with `data/download_features.
 ### Decoding of DNN unit activations
 
 1. Get fMRI and DNN unit activation data (`data/download_fmri.sh` and `download_features.sh`).
-2. Run `feature_decoding_batch.sh` in `decoding` directory
+2. Run `feature_decoding_batch.sh` in `decoding` directory. You can run the script in parallel across different computers when they share the same working directory.
 
 ### Computing BH score
 
@@ -105,6 +105,8 @@ $ python feature_decoding_train.py --net <framework>/<network>
 $ python feature_decoding_predict.py --net <framework>/<network>
 ```
 
+You can run the script in parallel across different computers when they share the same working directory.
+
 The results of decoding analysis are saved in `data` directory.
 
 - `data/feature_decoders`: trained decoders
@@ -117,7 +119,7 @@ To speed up the computation, run the script parallelly.
 
 To compute BH score, first add information about your DNN in `settings.json` as below.
 
-``` json
+```
 {
     "subjects": ["sub-01", "sub-02", "sub-03"] ,
     "rois": ["V1", "V2", "V3", "V4", "HVC"],
