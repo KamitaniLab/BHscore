@@ -1,5 +1,9 @@
 # Brain Hierarchy Score
 
+<p align="center">
+<img src="figure_1.jpg" width=75% alt="Figure 1: Evaluation of hierarchical homology.">
+</p>
+
 This repository contains code and data to reproduce the main results of [Nonaka, Majima, Aoki, and Kamitani (2020) Brain hierarchy score: Which deep neural networks are hierarchically brain-like?](https://www.biorxiv.org/content/10.1101/2020.07.22.216713).
 
 ## Requirements
