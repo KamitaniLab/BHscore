@@ -2,9 +2,9 @@
 
 set -Ceu
 
-[ -e ./fmri/sub-01_perceptionNaturalImageTraining_original_VC.h5 ] || wget --no-check-certificate -O ./fmri/sub-01_perceptionNaturalImageTraining_original_VC.h5 https://ndownloader.figshare.com/files/14830643
-[ -e ./fmri/sub-02_perceptionNaturalImageTraining_original_VC.h5 ] || wget --no-check-certificate -O ./fmri/sub-02_perceptionNaturalImageTraining_original_VC.h5 https://ndownloader.figshare.com/files/14830712
-[ -e ./fmri/sub-03_perceptionNaturalImageTraining_original_VC.h5 ] || wget --no-check-certificate -O ./fmri/sub-03_perceptionNaturalImageTraining_original_VC.h5 https://ndownloader.figshare.com/files/14830862
-[ -e ./fmri/sub-01_perceptionNaturalImageTest_original_VC.h5 ] || wget --no-check-certificate -O ./fmri/sub-01_perceptionNaturalImageTest_original_VC.h5 https://ndownloader.figshare.com/files/14830631
-[ -e ./fmri/sub-02_perceptionNaturalImageTest_original_VC.h5 ] || wget --no-check-certificate -O ./fmri/sub-02_perceptionNaturalImageTest_original_VC.h5 https://ndownloader.figshare.com/files/14830697
-[ -e ./fmri/sub-03_perceptionNaturalImageTest_original_VC.h5 ] || wget --no-check-certificate -O ./fmri/sub-03_perceptionNaturalImageTest_original_VC.h5 https://ndownloader.figshare.com/files/14830856
+[ -e ./fmri/sub-01_perceptionNaturalImageTraining_VC_v2.h5 ] || wget --no-check-certificate -O ./fmri/sub-01_perceptionNaturalImageTraining_VC_v2.h5 https://ndownloader.figshare.com/files/24153026
+[ -e ./fmri/sub-02_perceptionNaturalImageTraining_VC_v2.h5 ] || wget --no-check-certificate -O ./fmri/sub-02_perceptionNaturalImageTraining_VC_v2.h5 https://ndownloader.figshare.com/files/24153080
+[ -e ./fmri/sub-03_perceptionNaturalImageTraining_VC_v2.h5 ] || wget --no-check-certificate -O ./fmri/sub-03_perceptionNaturalImageTraining_VC_v2.h5 https://ndownloader.figshare.com/files/24153098
+[ -e ./fmri/sub-01_perceptionNaturalImageTest_VC_v2.h5 ] || wget --no-check-certificate -O ./fmri/sub-01_perceptionNaturalImageTest_VC_v2.h5 https://ndownloader.figshare.com/files/24153020
+[ -e ./fmri/sub-02_perceptionNaturalImageTest_VC_v2.h5 ] || wget --no-check-certificate -O ./fmri/sub-02_perceptionNaturalImageTest_VC_v2.h5 https://ndownloader.figshare.com/files/24153077
+[ -e ./fmri/sub-03_perceptionNaturalImageTest_VC_v2.h5 ] || wget --no-check-certificate -O ./fmri/sub-03_perceptionNaturalImageTest_VC_v2.h5 https://ndownloader.figshare.com/files/24153095
