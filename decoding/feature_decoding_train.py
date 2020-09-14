@@ -48,7 +48,7 @@ subjects_list = {
     'sub-03':  'sub-03_perceptionNaturalImageTraining_VC_v2.h5',
 }
 
-label_name = 'image_index'
+label = 'image_index'
 
 rois_list = {
     'HVC': 'ROI_HVC = 1',
@@ -157,12 +157,12 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
     start_time = time()
 
     # Brain data
-    x = data_brain[sbj].select(rois_list[roi])               # Brain data
-    x_labels = data_brain[sbj].select(label_name).flatten()  # Image labels in the brain data
+    x = data_brain[sbj].select(rois_list[roi])          # Brain data
+    x_labels = data_brain[sbj].select(label).flatten()  # Label (image index)
 
-    # Target features and image labels (image indexes)
-    y = data_features.get_features(feat)
-    y_labels = data_features.index
+    # Target features and image labels
+    y = data_features.get_features(feat)  # Target DNN features
+    y_labels = data_features.index        # Label (image index)
 
     print('Elapsed time (data preparation): %f' % (time() - start_time))
 

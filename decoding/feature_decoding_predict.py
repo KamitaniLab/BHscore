@@ -73,7 +73,7 @@ results_dir_decoding_accuracy_root = '../data/decoding_accuracy/ImageNetTest'
 chunk_axis = None
 # The features were divided into chunks along chunk_axis in decoder training.
 
-label_name = 'image_index'
+label = 'image_index'
 
 # Main #######################################################################
 
@@ -135,12 +135,13 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
     start_time = time()
 
     # Brain data
-    x = data_brain[sbj].select(rois_list[roi])               # Brain data
-    x_labels = data_brain[sbj].select(label_name).flatten()  # Image labels in the brain data
+    x = data_brain[sbj].select(rois_list[roi])          # Brain data
+    x_labels = data_brain[sbj].select(label).flatten()  # Label (image index)
 
-    # Target features and image labels (file names)
-    y = data_features.get_features(feat)
-    y_labels = data_features.index
+    # Target features and image labels
+    y = data_features.get_features(feat)  # Target DNN features
+    y_labels = data_features.index        # Label (image index)
+    label_names = data_features.labels    # Image index-to-name map
 
     # Averaging brain data
     x_labels_unique = np.unique(x_labels)
@@ -212,12 +213,12 @@ for feat, sbj, roi in product(features_list, subjects_list, rois_list):
     start_time = time()
 
     # Predicted features
-    for i, label in enumerate(x_labels_unique):
+    for i, _ in enumerate(x_labels_unique):
         # Predicted features
         feat = np.array([y_pred[i,]])  # To make feat shape 1 x M x N x ...
 
         # Save file name
-        save_file = os.path.join(results_dir_prediction, '%s.mat' % label)
+        save_file = os.path.join(results_dir_prediction, '%s.mat' % label_names[i])
 
         # Save
         save_array(save_file, feat, key='feat', dtype=np.float32, sparse=False)
