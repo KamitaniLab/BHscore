@@ -44,16 +44,10 @@ You can download them with `data/download_decoding_accuracy.sh` and `data/downlo
 
 ## Reproducing the results of Nonaka et al. (2021)
 
-### Decoding of DNN unit activations
+1. Download decoding and encoding accuracy data (run `data/download_decoding_accuracy.sh` and `data/download_encoding_accuracy.sh` in `data` directory).
+2. Run `calc_bhscore.ipynb`. The code will calculate decoding-based, encoding-based, and averaged BH scores of 29 DNNs, and then display the averaged BH scores (Figure 3).
 
-1. Get fMRI and DNN unit activation data (`data/download_fmri.sh` and `download_features.sh`).
-2. Run `feature_decoding_batch.sh` in `decoding` directory. You can run the script in parallel across different computers when they share the same working directory.
-
-### Computing BH score
-
-`calc_bhscore.ipynb` demonstrates reproduction of the main results (Figure 3)
-
-## Gettting a BH score of your DNNs
+## Gettting a BH score of your DNN (decoding-based)
 
 ### 1. Get stimulus images
 
@@ -141,10 +135,6 @@ To compute BH score, first add information about your DNN in `settings.json` as 
 ```
 
 Then, run `calc_bhscore.ipynb` and you will get the BH score for your DNN.
-
-## Reproduction of our results
-
-We provide scripts that reproduce main figures in the original paper (`calc_bhscore.ipynb`).
 
 ## Misc
 
