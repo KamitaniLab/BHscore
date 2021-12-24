@@ -4,11 +4,11 @@
 <img src="figure_1.jpg" width=75% alt="Figure 1: Evaluation of hierarchical homology.">
 </p>
 
-This repository contains code and data to reproduce the main results of [Nonaka, Majima, Aoki, and Kamitani (2020) Brain hierarchy score: Which deep neural networks are hierarchically brain-like?](https://www.biorxiv.org/content/10.1101/2020.07.22.216713).
+This repository contains code and data to reproduce the main results of [Nonaka, Majima, Aoki, and Kamitani (2021) Brain hierarchy score: Which deep neural networks are hierarchically brain-like? *iScience*](http://dx.doi.org/10.1016/j.isci.2021.103013).
 
 ## Requirements
 
-* Python 2.7
+* Python
 * [BdPy](https://github.com/KamitaniLab/bdpy)
 * [PyFastL2LiR](https://github.com/KamitaniLab/PyFastL2LiR)
 * NumPy
@@ -37,7 +37,12 @@ You can request us the images via <https://forms.gle/ujvA34948Xg49jdn9>.
 Unit activations of DNNs to the stimulus images are provided at [figshare](https://figshare.com/articles/dataset/The_Brain_Hierarchy_Score/12401168).
 You can download the files (about 6.8 GB in total) with `data/download_features.sh` script.
 
-## Reproducing the results of Nonaka et al. (2020)
+### Decoding and encoding accuracy
+
+Decoding and encoding accuracy used to calculate the BH score is shared at [figshare](https://figshare.com/articles/dataset/The_Brain_Hierarchy_Score/12401168).
+You can download them with `data/download_decoding_accuracy.sh` and `data/download_encoding_accuracy.sh`.
+
+## Reproducing the results of Nonaka et al. (2021)
 
 ### Decoding of DNN unit activations
 
@@ -139,7 +144,7 @@ Then, run `calc_bhscore.ipynb` and you will get the BH score for your DNN.
 
 ## Reproduction of our results
 
-We provide scripts that reproduce main figures in the original paper (see `analysis/`). 
+We provide scripts that reproduce main figures in the original paper (`calc_bhscore.ipynb`).
 
 ## Misc
 
