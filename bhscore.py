@@ -42,10 +42,10 @@ def compute_bhscore(predacc_list, pval=0.05, return_top_rois=False):
         # compute p value of the highest decoding accuracy
         tmp = np.sqrt((50 - 2) * (1 - pred_max ** 2))
         tmp = pred_max * tmp
-        pval = 2 * (1 - t.cdf(tmp, df=50 - 2))
+        pvals = 2 * (1 - t.cdf(tmp, df=50 - 2))
 
         # keep unit with p value < threshold and acc > 0
-        threshold = pval < 0.05
+        threshold = pvals < pval
         plus_unit = pred_max > 0
         select_unit_ind = np.logical_and(threshold, plus_unit)
         pred_max_ind = pred_max_ind[select_unit_ind]
