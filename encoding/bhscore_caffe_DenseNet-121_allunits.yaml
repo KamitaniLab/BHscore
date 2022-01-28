@@ -1,0 +1,196 @@
+# fMRI data ##################################################################
+training fmri:
+  sub-01:
+    - ../data/fmri/sub-01_perceptionNaturalImageTraining_VC_v2.h5
+  sub-02:
+    - ../data/fmri/sub-02_perceptionNaturalImageTraining_VC_v2.h5
+  sub-03:
+    - ../data/fmri/sub-03_perceptionNaturalImageTraining_VC_v2.h5
+
+test fmri:
+  sub-01:
+    - ../data/fmri/sub-01_perceptionNaturalImageTest_VC_v2.h5
+  sub-02:
+    - ../data/fmri/sub-02_perceptionNaturalImageTest_VC_v2.h5
+  sub-03:
+    - ../data/fmri/sub-03_perceptionNaturalImageTest_VC_v2.h5
+
+rois:
+  HVC: ROI_HVC = 1
+  V1:  ROI_V1 = 1
+  V2:  ROI_V2 = 1
+  V3:  ROI_V3 = 1
+  V4:  ROI_V4 = 1
+
+# The number of voxels used in feature decoding
+rois voxel num:
+  HVC: 500
+  V1:  500
+  V2:  500
+  V3:  500
+  V4:  500
+
+label key:
+  stimulus_name
+
+# DNN features ###############################################################
+training feature dir:
+  - ../data/features_all/ImageNetTraining
+
+test feature dir:
+  - ../data/features_all/ImageNetTest
+
+network:
+caffe/DenseNet_121
+
+layers:
+  - conv1_abs
+  - concat_2_1
+  - concat_2_2
+  - concat_2_3
+  - concat_2_4
+  - concat_2_5
+  - concat_2_6
+  - concat_3_1
+  - concat_3_2
+  - concat_3_3
+  - concat_3_4
+  - concat_3_5
+  - concat_3_6
+  - concat_3_7
+  - concat_3_8
+  - concat_3_9
+  - concat_3_10
+  - concat_3_11
+  - concat_3_12
+  - concat_4_1
+  - concat_4_2
+  - concat_4_3
+  - concat_4_4
+  - concat_4_5
+  - concat_4_6
+  - concat_4_7
+  - concat_4_8
+  - concat_4_9
+  - concat_4_10
+  - concat_4_11
+  - concat_4_12
+  - concat_4_13
+  - concat_4_14
+  - concat_4_15
+  - concat_4_16
+  - concat_4_17
+  - concat_4_18
+  - concat_4_19
+  - concat_4_20
+  - concat_4_21
+  - concat_4_22
+  - concat_4_23
+  - concat_4_24
+  - concat_5_1
+  - concat_5_2
+  - concat_5_3
+  - concat_5_4
+  - concat_5_5
+  - concat_5_6
+  - concat_5_7
+  - concat_5_8
+  - concat_5_9
+  - concat_5_10
+  - concat_5_11
+  - concat_5_12
+  - concat_5_13
+  - concat_5_14
+  - concat_5_15
+  - concat_5_16
+  - fc6
+
+# The number of units used in feature encoding
+layers unit num:
+  conv1_abs: 500
+  concat_2_1: 500
+  concat_2_2: 500
+  concat_2_3: 500
+  concat_2_4: 500
+  concat_2_5: 500
+  concat_2_6: 500
+  concat_3_1: 500
+  concat_3_2: 500
+  concat_3_3: 500
+  concat_3_4: 500
+  concat_3_5: 500
+  concat_3_6: 500
+  concat_3_7: 500
+  concat_3_8: 500
+  concat_3_9: 500
+  concat_3_10: 500
+  concat_3_11: 500
+  concat_3_12: 500
+  concat_4_1: 500
+  concat_4_2: 500
+  concat_4_3: 500
+  concat_4_4: 500
+  concat_4_5: 500
+  concat_4_6: 500
+  concat_4_7: 500
+  concat_4_8: 500
+  concat_4_9: 500
+  concat_4_10: 500
+  concat_4_11: 500
+  concat_4_12: 500
+  concat_4_13: 500
+  concat_4_14: 500
+  concat_4_15: 500
+  concat_4_16: 500
+  concat_4_17: 500
+  concat_4_18: 500
+  concat_4_19: 500
+  concat_4_20: 500
+  concat_4_21: 500
+  concat_4_22: 500
+  concat_4_23: 500
+  concat_4_24: 500
+  concat_5_1: 500
+  concat_5_2: 500
+  concat_5_3: 500
+  concat_5_4: 500
+  concat_5_5: 500
+  concat_5_6: 500
+  concat_5_7: 500
+  concat_5_8: 500
+  concat_5_9: 500
+  concat_5_10: 500
+  concat_5_11: 500
+  concat_5_12: 500
+  concat_5_13: 500
+  concat_5_14: 500
+  concat_5_15: 500
+  concat_5_16: 500
+  fc6: 500
+
+# Feature decoding ###########################################################
+
+# Feature decoders
+feature decoder dir:
+  ../data/feature_decoders/ImageNetTraining
+
+# Decoded features
+decoded feature dir:
+  ../data/decoded_features/ImageNetTest
+
+# Learning parameters
+alpha: 100
+chunk axis: 1
+
+# Feature encoding  ##########################################################
+
+# Feature decoders
+feature encoder dir:
+  ../data/feature_encoders/ImageNetTraining
+
+# Decoded features
+encoded brain dir:
+  ../data/encoded_fmri/ImageNetTest
+
+# Learning parameters
+encoding alpha: 100

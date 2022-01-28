@@ -1,0 +1,168 @@
+# fMRI data ##################################################################
+training fmri:
+  sub-01:
+    - ../data/fmri/sub-01_perceptionNaturalImageTraining_VC_v2.h5
+  sub-02:
+    - ../data/fmri/sub-02_perceptionNaturalImageTraining_VC_v2.h5
+  sub-03:
+    - ../data/fmri/sub-03_perceptionNaturalImageTraining_VC_v2.h5
+
+test fmri:
+  sub-01:
+    - ../data/fmri/sub-01_perceptionNaturalImageTest_VC_v2.h5
+  sub-02:
+    - ../data/fmri/sub-02_perceptionNaturalImageTest_VC_v2.h5
+  sub-03:
+    - ../data/fmri/sub-03_perceptionNaturalImageTest_VC_v2.h5
+
+rois:
+  HVC: ROI_HVC = 1
+  V1:  ROI_V1 = 1
+  V2:  ROI_V2 = 1
+  V3:  ROI_V3 = 1
+  V4:  ROI_V4 = 1
+
+# The number of voxels used in feature decoding
+rois voxel num:
+  HVC: 500
+  V1:  500
+  V2:  500
+  V3:  500
+  V4:  500
+
+label key:
+  stimulus_name
+
+# DNN features ###############################################################
+training feature dir:
+  - ../data/features_all/ImageNetTraining
+
+test feature dir:
+  - ../data/features_all/ImageNetTest
+
+network:
+caffe/InceptionResNet-v2
+
+layers:
+  - conv1_3x3_s2_abs
+  - conv4_3x3
+  - stem_concat
+  - inception_resnet_v2_a1_residual_eltwise
+  - inception_resnet_v2_a2_residual_eltwise
+  - inception_resnet_v2_a3_residual_eltwise
+  - inception_resnet_v2_a4_residual_eltwise
+  - inception_resnet_v2_a5_residual_eltwise
+  - inception_resnet_v2_a6_residual_eltwise
+  - inception_resnet_v2_a7_residual_eltwise
+  - inception_resnet_v2_a8_residual_eltwise
+  - inception_resnet_v2_a9_residual_eltwise
+  - inception_resnet_v2_a10_residual_eltwise
+  - reduction_a_concat
+  - inception_resnet_v2_b1_residual_eltwise
+  - inception_resnet_v2_b2_residual_eltwise
+  - inception_resnet_v2_b3_residual_eltwise
+  - inception_resnet_v2_b4_residual_eltwise
+  - inception_resnet_v2_b5_residual_eltwise
+  - inception_resnet_v2_b6_residual_eltwise
+  - inception_resnet_v2_b7_residual_eltwise
+  - inception_resnet_v2_b8_residual_eltwise
+  - inception_resnet_v2_b9_residual_eltwise
+  - inception_resnet_v2_b10_residual_eltwise
+  - inception_resnet_v2_b11_residual_eltwise
+  - inception_resnet_v2_b12_residual_eltwise
+  - inception_resnet_v2_b13_residual_eltwise
+  - inception_resnet_v2_b14_residual_eltwise
+  - inception_resnet_v2_b15_residual_eltwise
+  - inception_resnet_v2_b16_residual_eltwise
+  - inception_resnet_v2_b17_residual_eltwise
+  - inception_resnet_v2_b18_residual_eltwise
+  - inception_resnet_v2_b19_residual_eltwise
+  - inception_resnet_v2_b20_residual_eltwise
+  - reduction_b_concat
+  - inception_resnet_v2_c1_residual_eltwise
+  - inception_resnet_v2_c2_residual_eltwise
+  - inception_resnet_v2_c3_residual_eltwise
+  - inception_resnet_v2_c4_residual_eltwise
+  - inception_resnet_v2_c5_residual_eltwise
+  - inception_resnet_v2_c6_residual_eltwise
+  - inception_resnet_v2_c7_residual_eltwise
+  - inception_resnet_v2_c8_residual_eltwise
+  - inception_resnet_v2_c9_residual_eltwise
+  - inception_resnet_v2_c10_residual_eltwise
+  - classifier
+
+# The number of units used in feature encoding
+layers unit num:
+  conv1_3x3_s2_abs: 500
+  conv4_3x3: 500
+  stem_concat: 500
+  inception_resnet_v2_a1_residual_eltwise: 500
+  inception_resnet_v2_a2_residual_eltwise: 500
+  inception_resnet_v2_a3_residual_eltwise: 500
+  inception_resnet_v2_a4_residual_eltwise: 500
+  inception_resnet_v2_a5_residual_eltwise: 500
+  inception_resnet_v2_a6_residual_eltwise: 500
+  inception_resnet_v2_a7_residual_eltwise: 500
+  inception_resnet_v2_a8_residual_eltwise: 500
+  inception_resnet_v2_a9_residual_eltwise: 500
+  inception_resnet_v2_a10_residual_eltwise: 500
+  reduction_a_concat: 500
+  inception_resnet_v2_b1_residual_eltwise: 500
+  inception_resnet_v2_b2_residual_eltwise: 500
+  inception_resnet_v2_b3_residual_eltwise: 500
+  inception_resnet_v2_b4_residual_eltwise: 500
+  inception_resnet_v2_b5_residual_eltwise: 500
+  inception_resnet_v2_b6_residual_eltwise: 500
+  inception_resnet_v2_b7_residual_eltwise: 500
+  inception_resnet_v2_b8_residual_eltwise: 500
+  inception_resnet_v2_b9_residual_eltwise: 500
+  inception_resnet_v2_b10_residual_eltwise: 500
+  inception_resnet_v2_b11_residual_eltwise: 500
+  inception_resnet_v2_b12_residual_eltwise: 500
+  inception_resnet_v2_b13_residual_eltwise: 500
+  inception_resnet_v2_b14_residual_eltwise: 500
+  inception_resnet_v2_b15_residual_eltwise: 500
+  inception_resnet_v2_b16_residual_eltwise: 500
+  inception_resnet_v2_b17_residual_eltwise: 500
+  inception_resnet_v2_b18_residual_eltwise: 500
+  inception_resnet_v2_b19_residual_eltwise: 500
+  inception_resnet_v2_b20_residual_eltwise: 500
+  reduction_b_concat: 500
+  inception_resnet_v2_c1_residual_eltwise: 500
+  inception_resnet_v2_c2_residual_eltwise: 500
+  inception_resnet_v2_c3_residual_eltwise: 500
+  inception_resnet_v2_c4_residual_eltwise: 500
+  inception_resnet_v2_c5_residual_eltwise: 500
+  inception_resnet_v2_c6_residual_eltwise: 500
+  inception_resnet_v2_c7_residual_eltwise: 500
+  inception_resnet_v2_c8_residual_eltwise: 500
+  inception_resnet_v2_c9_residual_eltwise: 500
+  inception_resnet_v2_c10_residual_eltwise: 500
+  classifier: 500
+
+# Feature decoding ###########################################################
+
+# Feature decoders
+feature decoder dir:
+  ../data/feature_decoders/ImageNetTraining
+
+# Decoded features
+decoded feature dir:
+  ../data/decoded_features/ImageNetTest
+
+# Learning parameters
+alpha: 100
+chunk axis: 1
+
+# Feature encoding  ##########################################################
+
+# Feature decoders
+feature encoder dir:
+  ../data/feature_encoders/ImageNetTraining
+
+# Decoded features
+encoded brain dir:
+  ../data/encoded_fmri/ImageNetTest
+
+# Learning parameters
+encoding alpha: 100

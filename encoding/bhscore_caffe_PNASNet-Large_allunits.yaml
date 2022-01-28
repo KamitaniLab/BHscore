@@ -1,0 +1,106 @@
+# fMRI data ##################################################################
+training fmri:
+  sub-01:
+    - ../data/fmri/sub-01_perceptionNaturalImageTraining_VC_v2.h5
+  sub-02:
+    - ../data/fmri/sub-02_perceptionNaturalImageTraining_VC_v2.h5
+  sub-03:
+    - ../data/fmri/sub-03_perceptionNaturalImageTraining_VC_v2.h5
+
+test fmri:
+  sub-01:
+    - ../data/fmri/sub-01_perceptionNaturalImageTest_VC_v2.h5
+  sub-02:
+    - ../data/fmri/sub-02_perceptionNaturalImageTest_VC_v2.h5
+  sub-03:
+    - ../data/fmri/sub-03_perceptionNaturalImageTest_VC_v2.h5
+
+rois:
+  HVC: ROI_HVC = 1
+  V1:  ROI_V1 = 1
+  V2:  ROI_V2 = 1
+  V3:  ROI_V3 = 1
+  V4:  ROI_V4 = 1
+
+# The number of voxels used in feature decoding
+rois voxel num:
+  HVC: 500
+  V1:  500
+  V2:  500
+  V3:  500
+  V4:  500
+
+label key:
+  stimulus_name
+
+# DNN features ###############################################################
+training feature dir:
+  - ../data/features_all/ImageNetTraining
+
+test feature dir:
+  - ../data/features_all/ImageNetTest
+
+network:
+tensorflow/pnasnet_large
+
+layers:
+  - conv0_abs
+  - Stem
+  - Cell_0
+  - Cell_1
+  - Cell_2
+  - Cell_3
+  - Cell_4
+  - Cell_5
+  - Cell_6
+  - Cell_7
+  - Cell_8
+  - Cell_9
+  - Cell_10
+  - Cell_11
+  - Logits
+
+# The number of units used in feature encoding
+layers unit num:
+  conv0_abs: 500
+  Stem: 500
+  Cell_0: 500
+  Cell_1: 500
+  Cell_2: 500
+  Cell_3: 500
+  Cell_4: 500
+  Cell_5: 500
+  Cell_6: 500
+  Cell_7: 500
+  Cell_8: 500
+  Cell_9: 500
+  Cell_10: 500
+  Cell_11: 500
+  Logits: 500
+
+# Feature decoding ###########################################################
+
+# Feature decoders
+feature decoder dir:
+  ../data/feature_decoders/ImageNetTraining
+
+# Decoded features
+decoded feature dir:
+  ../data/decoded_features/ImageNetTest
+
+# Learning parameters
+alpha: 100
+chunk axis: 3
+
+# Feature encoding  ##########################################################
+
+# Feature decoders
+feature encoder dir:
+  ../data/feature_encoders/ImageNetTraining
+
+# Decoded features
+encoded brain dir:
+  ../data/encoded_fmri/ImageNetTest
+
+# Learning parameters
+encoding alpha: 100
